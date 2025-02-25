@@ -11,4 +11,8 @@ reference/
 # Fresh build directory
 _fresh/
 # npm dependencies
-node_modules/
+node_modules
+
+# Prisma
+prisma/generated
+prisma/dev.db-journal
