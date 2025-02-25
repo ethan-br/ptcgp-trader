@@ -1,5 +1,6 @@
 import { useSignal } from "@preact/signals";
 import Counter from "../islands/Counter.tsx";
+import { queryDB, Card } from "../db/sqlite.ts";
 
 export default function Home() {
   const count = useSignal(3);
@@ -19,6 +20,11 @@ export default function Home() {
           <code class="mx-2">./routes/index.tsx</code> file, and refresh.
         </p>
         <Counter count={count} />
+        <ul>
+          {queryDB().map((row: Card, index: number) => {
+            return <li key={index}>{row.name}</li>;
+          })}
+        </ul>
       </div>
     </div>
   );
