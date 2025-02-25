@@ -9,7 +9,6 @@ import { DatabaseSync } from "node:sqlite";
 export function queryDB() {
   const db = new DatabaseSync("./db/sqlite.db");
   const rows =  <Card[]> db.prepare("SELECT * FROM card").all();
-  console.log(rows);
   db.close();
   return rows
 }
