@@ -1,6 +1,6 @@
-### Prisma
-
-After modifying [`schema.prisma`](prisma/schema.prisma), run to reflect new typing changes:
+### Drizzle
+Run
 ```bash
-deno task prisma:migrate <migration name>
+deno install
+sed -i -e 's/"deno"/"no-deno"/' node_modules/@libsql/client/package.json
 ```
