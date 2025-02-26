@@ -6,7 +6,7 @@ export async function seed_db() {
         [
             { expansionCode: "A1", name: "Genetic Apex", numCards: 286 },
             { expansionCode: "A1a", name: "Mythical Island", numCards: 86 },
-            { expansionCode: "A2", name: "Space-Time Smackdown", numCards: 207 }
+            { expansionCode: "A2", name: "Space-Time Smackdown", numCards: 207 },
         ],
     );
 }

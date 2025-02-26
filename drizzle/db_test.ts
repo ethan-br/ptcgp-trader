@@ -5,7 +5,7 @@ import { seed_db } from "./seed.ts";
 
 Deno.test("expansion test 1", async () => {
     //seed_db();
-    const exps = await db.select().from(expansion)
-    console.log(exps)
-    assertEquals(exps.length, 3)
-})
+    const exps = await db.select().from(expansion);
+    console.log(exps);
+    assertEquals(exps.length, 3);
+});
