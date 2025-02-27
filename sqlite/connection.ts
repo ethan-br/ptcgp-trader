@@ -1,7 +1,19 @@
 import { DatabaseSync } from "node:sqlite";
 
-/** 
- * Synchronous SQLite database instance. 
- * Must be closed with `.close()` after use. 
+/**
+ * Opens and returns a synchronous SQLite database instance.
+ * 
+ * The database instance is created using the path specified in the environment variable `DB_PATH`.
+ * It is **important** to close the database with the `.close()` method after usage to avoid memory leaks or file locking issues.
+ *
+ * @returns {DatabaseSync} A synchronous SQLite database instance.
+ * 
+ * @throws An error if the `DB_PATH` environment variable is not defined or the database connection fails.
  */
-export const db = new DatabaseSync(<string>Deno.env.get("DB_PATH"));
+export function openDB() {
+    const dbPath = Deno.env.get("DB_PATH");
+    if (!dbPath) {
+        throw new Error("DB_PATH environment variable is not defined.");
+    }
+    return new DatabaseSync(dbPath);
+}
