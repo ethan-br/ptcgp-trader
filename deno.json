@@ -31,6 +31,7 @@
     "imports": {
         "$fresh/": "https://deno.land/x/fresh@1.7.3/",
         "@std/assert": "jsr:@std/assert",
+        "@std/http": "jsr:@std/http@^1.0.13",
         "@types/sqlite3": "npm:@types/sqlite3@^5.1.0",
         "preact": "https://esm.sh/preact@10.22.0",
         "preact/": "https://esm.sh/preact@10.22.0/",
