@@ -7,10 +7,7 @@
         "start": "deno run -A --watch=static/,routes/ dev.ts",
         "build": "deno run -A dev.ts build",
         "preview": "deno run -A main.ts",
-        "update": "deno run -A -r https://fresh.deno.dev/update .",
-        "drizzle:push": "deno run -A --env-file npm:drizzle-kit push",
-        "drizzle:pull": "deno run -A --env-file npm:drizzle-kit pull",
-        "test:drizzle": "deno test -ERWS --allow-ffi --env-file drizzle/"
+        "update": "deno run -A -r https://fresh.deno.dev/update ."
     },
     "lint": {
         "rules": {
@@ -24,21 +21,21 @@
         "indentWidth": 4,
         "lineWidth": 120
     },
+    "unstable": [
+        "fmt-sql"
+    ],
     "exclude": [
         "**/_fresh/*"
     ],
     "imports": {
         "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-        "@libsql/client": "npm:@libsql/client@^0.14.0",
-        "drizzle-kit": "npm:drizzle-kit@^0.30.5",
-        "drizzle-orm": "npm:drizzle-orm@^0.40.0",
         "preact": "https://esm.sh/preact@10.22.0",
         "preact/": "https://esm.sh/preact@10.22.0/",
         "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
         "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
         "$std/": "https://deno.land/std@0.216.0/"
     },
-    "nodeModulesDir": "auto",
+    "nodeModulesDir": "none",
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "preact"
