@@ -9,7 +9,15 @@ export default function SignupBox() {
             <form class="login-form" method="post" action="/api/login">
                 <div>
                     <TextInput type="text" name="friendId" placeholder="Friend ID" required />
-                    <p class="hint">Go to: Home &gt; Profile</p>
+                    <p class="hint">
+                        <img
+                            class="hint-icon"
+                            src="https://img.icons8.com/?size=100&id=P7N90lIvNYPd&format=png&color=38414e"
+                            height="0.7rem"
+                            style="padding-right: 5px;"
+                        />
+                        Go to: Home &gt; Profile
+                    </p>
                 </div>
                 <TextInput type="text" name="username" placeholder="Username" required />
                 <TextInput type="password" name="password" placeholder="Password" required />
