@@ -1,6 +1,6 @@
-import LoginBox from "../islands/LoginBox.tsx";
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "@std/http/cookie";
+import SignupBox from "../islands/SignupBox.tsx";
 
 interface Data {
     isLoggedIn: boolean;
@@ -19,7 +19,7 @@ export default function Home({ data }: PageProps<Data>) {
             <h1>PTCGP Trader</h1>
             <div class="content">
                 You currently {data.isLoggedIn ? "are" : "are not"} logged in.
-                {data.isLoggedIn ? <a href="/api/logout">Logout</a> : <LoginBox />}
+                {data.isLoggedIn ? <a href="/api/logout">Logout</a> : <SignupBox />}
             </div>
         </div>
     );

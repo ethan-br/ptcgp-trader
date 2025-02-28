@@ -1,22 +1,21 @@
 import { assertEquals } from "@std/assert";
 import { openDB } from "./connection.ts";
-import { Expansion } from "./types.ts";
 import { applyMigrations } from "./migration.ts";
+import { Expansion } from "./types.ts";
 
 // db must be migrated/seeded
 Deno.test("db test 1", async () => {
     const db = openDB();
-    await applyMigrations(db)
-    const rows: Expansion[] = <Expansion[]>db.prepare("SELECT * FROM expansion").all();
+    await applyMigrations(db);
+    const rows: Expansion[] = <Expansion[]> db.prepare("SELECT * FROM expansion").all();
     db.close();
     assertEquals(rows.length, 3);
 });
 
-
 // db must be migrated/seeded
 Deno.test("db test 2", async () => {
     const db = openDB();
-    await applyMigrations(db)
+    await applyMigrations(db);
     const rows = db.prepare(`SELECT
     p1.player_id AS player1_id,
     p1.name AS player1_name,

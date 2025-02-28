@@ -9,6 +9,7 @@ import * as $api_logout from "./routes/api/logout.ts";
 import * as $index from "./routes/index.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $LoginBox from "./islands/LoginBox.tsx";
+import * as $SignupBox from "./islands/SignupBox.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -22,6 +23,7 @@ const manifest = {
     islands: {
         "./islands/Counter.tsx": $Counter,
         "./islands/LoginBox.tsx": $LoginBox,
+        "./islands/SignupBox.tsx": $SignupBox,
     },
     baseUrl: import.meta.url,
 } satisfies Manifest;
