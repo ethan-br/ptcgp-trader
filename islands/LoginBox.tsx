@@ -1,13 +1,21 @@
+import { Button } from "../components/Button.tsx";
+import { ModalBox } from "../components/ModalWindow.tsx";
+import { TextInput } from "../components/TextInput.tsx";
+
 export default function LoginBox() {
     return (
-        <div class="auth-box">
-            <h3 class="title">Login</h3>
+        <ModalBox title="Login">
             {/* Sends a POST request to /api/login endpoint */}
             <form class="login-form" method="post" action="/api/login">
-                <input class="text-input" type="text" name="username" placeholder="Username" required />
-                <input class="text-input" type="password" name="password" placeholder="Password" required />
-                <button class="submit-button" type="submit">Login</button>
+                <TextInput type="text" name="username" placeholder="Username" required />
+                <TextInput type="password" name="password" placeholder="Password" required />
+                <div>
+                    <Button type="submit">Login</Button>
+                    <p class="hint">
+                        Don't have an account? <a href="/signup">Sign up</a>
+                    </p>
+                </div>
             </form>
-        </div>
+        </ModalBox>
     );
 }

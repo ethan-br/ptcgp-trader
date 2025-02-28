@@ -1,12 +1,12 @@
 import { JSX } from "preact";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 
-export function Button(props: JSX.HTMLAttributes<HTMLButtonElement>) {
+export function TextInput(props: JSX.HTMLAttributes<HTMLInputElement>) {
     return (
-        <button
+        <input
             {...props}
             disabled={!IS_BROWSER || props.disabled}
-            class="button"
+            class="text-input"
         />
     );
 }
