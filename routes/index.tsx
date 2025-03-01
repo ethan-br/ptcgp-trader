@@ -1,31 +1,27 @@
-import type { Handlers, PageProps } from "$fresh/server.ts";
+import type { Handlers } from "$fresh/server.ts";
 import { getCookies } from "@std/http/cookie";
-import SignupBox from "../islands/SignupBox.tsx";
-import LoginBox from "../islands/LoginBox.tsx";
 
-interface Data {
-    isLoggedIn: boolean;
-}
-
-export const handler: Handlers<Data> = {
-    GET(req, ctx) {
+export const handler: Handlers = {
+    GET(req, _ctx) {
         const cookies = getCookies(req.headers);
-        return ctx.render!({ isLoggedIn: cookies.auth === "uniqueValue" });
+        if (cookies.auth === "uniqueValue") {
+            return new Response("", {
+                status: 307,
+                headers: { Location: "/dashboard" },
+            });
+        }
+        return new Response("", {
+            status: 307,
+            headers: { Location: "/login" },
+        });
     },
 };
 
-export default function Home({ data }: PageProps<Data>) {
+export default function Home() {
     return (
         <div>
             <h1>PTCGP Trader</h1>
             <div class="content">
-                You currently {data.isLoggedIn ? "are" : "are not"} logged in.
-                {data.isLoggedIn ? <a href="/api/logout">Logout</a> : (
-                    <>
-                        <LoginBox />
-                        <SignupBox />
-                    </>
-                )}
             </div>
         </div>
     );

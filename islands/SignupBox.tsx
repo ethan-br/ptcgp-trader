@@ -13,8 +13,6 @@ export default function SignupBox() {
                         <img
                             class="hint-icon"
                             src="https://img.icons8.com/?size=100&id=P7N90lIvNYPd&format=png&color=38414e"
-                            height="0.7rem"
-                            style="padding-right: 5px;"
                         />
                         Go to: Home &gt; Profile
                     </p>
