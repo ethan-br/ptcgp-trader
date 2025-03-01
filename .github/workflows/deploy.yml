@@ -1,9 +1,9 @@
 name: Deploy
 on:
   push:
-    branches: main
+    branches: prod
   pull_request:
-    branches: main
+    branches: prod
 
 jobs:
   deploy:
@@ -29,7 +29,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "ptcgp-trade"
+          project: "ptcgp-trader"
           entrypoint: "main.ts"
           root: "."
           
