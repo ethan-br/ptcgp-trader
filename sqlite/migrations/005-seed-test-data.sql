@@ -1,7 +1,7 @@
 -- MIGRATION: UP
 
 -- Insert sample players
-INSERT INTO player (name, friend_id) VALUES
+INSERT INTO player (username, friend_id) VALUES
 ('Alice', 'F12345'),
 ('Bob', 'F67890'),
 ('Charlie', 'F54321');

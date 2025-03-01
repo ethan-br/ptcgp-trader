@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS card (
 
 CREATE TABLE IF NOT EXISTS player (
     player_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
+    username TEXT NOT NULL,
+    password_hash TEXT,
     friend_id TEXT NOT NULL
 );
 
@@ -42,10 +43,10 @@ CREATE TABLE IF NOT EXISTS expansion (
 );
 
 -- MIGRATION: DOWN
-DROP TABLE card;
+DROP TABLE IF EXISTS card;
 
-DROP TABLE player;
+DROP TABLE IF EXISTS player;
 
-DROP TABLE collection;
+DROP TABLE IF EXISTS collection;
 
-DROP TABLE expansion;
+DROP TABLE IF EXISTS expansion;
