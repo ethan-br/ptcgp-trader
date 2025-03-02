@@ -1,12 +1,14 @@
 import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "@std/http/cookie";
+import { getPlayerId } from "../../src/dbHelpers.ts";
+import { isValidLoginForm, sha256 } from "../../src/authHelpers.ts";
 
 export const handler: Handlers = {
     async POST(req) {
         const url = new URL(req.url);
         const form = await req.formData();
-        // auth verification
-        if (form.get("username") === "deno" && form.get("password") === "land") {
+        if (isValidLoginForm(form)) {
+            const playerId = getPlayerId(<string> form.get("username"), await sha256(<string> form.get("password")));
             const headers = new Headers();
             setCookie(headers, {
                 name: "auth",
@@ -17,12 +19,17 @@ export const handler: Handlers = {
                 path: "/",
                 secure: true,
             });
-
-            headers.set("location", "/dashboard");
-            return new Response(null, {
-                status: 303, // "See Other"
-                headers,
-            });
+            if (playerId !== -1) {
+                headers.set("location", `/dashboard/${playerId}`);
+                return new Response(null, {
+                    status: 303,
+                    headers,
+                });
+            } else {
+                return new Response(null, {
+                    status: 403,
+                });
+            }
         } else {
             return new Response(null, {
                 status: 403,

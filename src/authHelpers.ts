@@ -2,6 +2,10 @@ export function isValidSignupForm(form: FormData) {
     return form.has("friendId") && form.has("username") && form.has("password");
 }
 
+export function isValidLoginForm(form: FormData) {
+    return form.has("username") && form.has("password");
+}
+
 export async function sha256(text: string): Promise<string> {
     const encoder = new TextEncoder();
     const data = encoder.encode(text);

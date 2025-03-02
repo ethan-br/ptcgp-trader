@@ -21,4 +21,13 @@ export function getPlayerId(username: string, password_hash: string): number {
     return rows.length > 0 ? rows[0].player_id : -1;
 }
 
+export function getPlayerById(playerId: number): Player {
+    const db = openDB();
+    const row: Player = <Player> db.prepare(`
+        SELECT * FROM player
+        WHERE player_id = ?;
+    `).get(playerId);
+    return row;
+}
+
 // getPlayerId("Bob", "password");
