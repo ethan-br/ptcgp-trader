@@ -23,6 +23,11 @@ jobs:
               with:
                   deno-version: v2.x
 
+            - name: Create local.db file
+              run: |
+                  echo "Creating local.db file..."
+                  touch local.db
+
             - name: Build step
               run: "deno task build"
 
