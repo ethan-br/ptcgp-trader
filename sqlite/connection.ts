@@ -11,9 +11,5 @@ import { DatabaseSync } from "node:sqlite";
  * @throws An error if the `DB_PATH` environment variable is not defined or the database connection fails.
  */
 export function openDB() {
-    const dbPath = Deno.env.get("DB_PATH");
-    if (!dbPath) {
-        throw new Error("DB_PATH environment variable is not defined.");
-    }
-    return new DatabaseSync(dbPath);
+    return new DatabaseSync("local.db");
 }
