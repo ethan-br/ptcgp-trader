@@ -1,5 +1,6 @@
 .vscode/
 reference/
+**/*.db
 
 # dotenv environment variable files
 .env
@@ -16,3 +17,4 @@ node_modules
 # Prisma
 prisma/generated
 prisma/dev.db-journal
+sqlite/local.db

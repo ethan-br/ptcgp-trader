@@ -16,6 +16,12 @@ export interface Player {
     friend_id: FriendID;
 }
 
+export interface PlayerNoId {
+    username: string;
+    password_hash: string;
+    friend_id: FriendID;
+}
+
 export interface Collection {
     player_id: number;
     expansion_code: string;
