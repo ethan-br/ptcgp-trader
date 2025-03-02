@@ -13,7 +13,7 @@ export function addPlayer({ username, password_hash, friend_id }: PlayerNoId) {
 
 export function getPlayerId(username: string, password_hash: string): number {
     const db = openDB();
-    const rows: Player[] = <Player[]> <unknown> db.prepare(`
+    const rows: Player[] = <Player[]> db.prepare(`
         SELECT * FROM player
         WHERE username = ? AND password_hash = ?;
     `).all(username, password_hash);
