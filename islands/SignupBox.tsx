@@ -5,8 +5,7 @@ import { TextInput } from "../components/TextInput.tsx";
 export default function SignupBox() {
     return (
         <ModalBox title="Sign up">
-            {/* Sends a POST request to /api/login endpoint */}
-            <form class="login-form" method="post" action="/api/login">
+            <form class="login-form" method="post" action="/api/signup">
                 <div>
                     <TextInput type="text" name="friendId" placeholder="Friend ID" required />
                     <p class="hint">
