@@ -21,4 +21,4 @@ export function getPlayerId(username: string, password_hash: string): number {
     return rows.length > 0 ? rows[0].player_id : -1;
 }
 
-getPlayerId("Bob", "password");
+// getPlayerId("Bob", "password");
